@@ -1,0 +1,5 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Allow automerge when the repo has no PR status checks (use only with push-only or missing PR CI)",
+  "ignoreTests": true
+}

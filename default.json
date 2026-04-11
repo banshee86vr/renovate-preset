@@ -1,0 +1,8 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "banshee86vr default: config:recommended + PR automerge (all update types)",
+  "extends": ["config:recommended"],
+  "automerge": true,
+  "automergeType": "pr",
+  "rebaseWhen": "behind-base-branch"
+}

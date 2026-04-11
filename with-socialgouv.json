@@ -1,0 +1,8 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "SocialGouv shared config + PR automerge (e.g. helm-schema)",
+  "extends": ["local>SocialGouv/renovate-config"],
+  "automerge": true,
+  "automergeType": "pr",
+  "rebaseWhen": "behind-base-branch"
+}
