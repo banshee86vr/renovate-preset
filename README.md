@@ -2,6 +2,8 @@
 
 Shared Renovate presets for the `banshee86vr` GitHub account. Canonical rollout guide: [AUTOMERGE.md](./AUTOMERGE.md).
 
+To turn on **Allow auto-merge** on every `banshee86vr/*` repo you own (where your GitHub plan allows it), run [`scripts/enable-allow-auto-merge.sh`](./scripts/enable-allow-auto-merge.sh).
+
 ## Presets
 
 | Preset | Use |

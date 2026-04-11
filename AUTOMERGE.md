@@ -41,8 +41,19 @@ Not listed here; add `renovate.json` when those repos enable Renovate. Optional:
 
 Do this on **github.com** (repeat per repo or use org rulesets where applicable).
 
-1. **Allow auto-merge**  
+1. **Allow auto-merge** (required for `gh pr merge … --auto` and Renovate platform merge)  
    Repository **Settings → General → Pull Requests** → enable **Allow auto-merge**.
+
+   **GitHub CLI:** when branch protection blocks an immediate merge, use **`--auto`** so the PR is **queued** and merges as soon as checks and reviews are satisfied:
+
+   ```bash
+   gh pr merge <number> --squash --auto --delete-branch
+   # or --merge --auto / --rebase --auto
+   ```
+
+   **Bulk (repos you own):** from this repo, run [`scripts/enable-allow-auto-merge.sh`](./scripts/enable-allow-auto-merge.sh) to `PATCH` each `banshee86vr/*` repository with `allow_auto_merge: true`.
+
+   **Billing note:** On the **Free** plan, GitHub only supports auto-merge for **public** repositories. For **private** repos, the API may leave `allow_auto_merge` as `false` until you use **GitHub Team** / **Enterprise** (or make the repository public). The script reports `SKIP` in that case.
 
 2. **Required status checks** (repos with PR CI)  
    Branch protection / rulesets for the default branch: enable **Require status checks to pass** and **select the exact check names** your workflows publish (e.g. job names from Actions).  
