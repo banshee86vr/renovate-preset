@@ -1,8 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "SocialGouv shared config + PR automerge (e.g. helm-schema)",
+  "description": "SocialGouv shared config + PR automerge; minor and major updates only (e.g. helm-schema)",
   "extends": ["local>SocialGouv/renovate-config"],
   "automerge": true,
   "automergeType": "pr",
-  "rebaseWhen": "behind-base-branch"
+  "rebaseWhen": "behind-base-branch",
+  "packageRules": [
+    {
+      "description": "No PRs for patch-only updates; minor and major only",
+      "matchUpdateTypes": ["patch"],
+      "enabled": false
+    }
+  ]
 }

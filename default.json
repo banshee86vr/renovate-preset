@@ -1,8 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "banshee86vr default: config:recommended + PR automerge (all update types)",
+  "description": "banshee86vr default: config:recommended + PR automerge; minor and major updates only (no patch-only PRs)",
   "extends": ["config:recommended"],
   "automerge": true,
   "automergeType": "pr",
-  "rebaseWhen": "behind-base-branch"
+  "rebaseWhen": "behind-base-branch",
+  "packageRules": [
+    {
+      "description": "No PRs for patch-only updates; minor and major only",
+      "matchUpdateTypes": ["patch"],
+      "enabled": false
+    }
+  ]
 }
