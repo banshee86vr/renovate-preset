@@ -8,7 +8,7 @@ To turn on **Allow auto-merge** on every `banshee86vr/*` repo you own (where you
 
 | Preset | Use |
 |--------|-----|
-| `github>banshee86vr/renovate-preset` | Resolves to `default.json`: `config:recommended` + PR automerge + `rebaseWhen: behind-base-branch` + **no patch-only PRs** (minor/major updates only). |
+| `github>banshee86vr/renovate-preset` | Resolves to `default.json`: `config:recommended` + PR automerge + `rebaseWhen: behind-base-branch` + **one grouped PR** for all enabled updates (`group:all`, `prConcurrentLimit: 1`) + **no patch-only PRs** (minor/major updates only). See [docs/adr/0001-group-all-updates-one-pr.md](./docs/adr/0001-group-all-updates-one-pr.md). |
 | `github>banshee86vr/renovate-preset//with-socialgouv.json` | Same automerge behavior on top of `local>SocialGouv/renovate-config`. |
 | `github>banshee86vr/renovate-preset//no-tests.json` | Sets `ignoreTests: true` so Renovate can automerge when no checks run on PRs. Combine with one of the above. |
 
