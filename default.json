@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "banshee86vr default: config:recommended + PR automerge + one grouped PR for all enabled updates; minor and major only (no patch-only PRs)",
+  "description": "banshee86vr default: config:recommended + PR automerge + one grouped PR for all enabled updates; minor and major only (no patch-only PRs); 2-day minimumReleaseAge; GitHub Packages via Mend App secret",
   "extends": ["config:recommended", "group:all"],
   "ignorePresets": ["group:monorepos", "group:recommended"],
   "automerge": true,
@@ -8,6 +8,14 @@
   "rebaseWhen": "behind-base-branch",
   "prConcurrentLimit": 1,
   "separateMajorMinor": false,
+  "minimumReleaseAge": "2 days",
+  "hostRules": [
+    {
+      "matchHost": "npm.pkg.github.com",
+      "hostType": "npm",
+      "token": "{{ secrets.GH_PACKAGES_TOKEN }}"
+    }
+  ],
   "packageRules": [
     {
       "description": "No PRs for patch-only updates; minor and major only",
